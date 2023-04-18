@@ -1,22 +1,25 @@
-#include <stdio.h>
-#include "holberton.h"
+#include "main.h"
 
-unsigned int binary_to_uint(const char *b)
+/**
+* convert_binary_to_uint - Converts a binary string to an unsigned integer.
+* @binary_string: A string containing the binary number.
+*
+* Return: The converted number.
+*/
+unsigned int convert_binary_to_uint(const char *binary_string)
 {
-    unsigned int decimal_value = 0;
-    int i;
+int i;
+unsigned int decimal_value = 0;
 
-    if (!b)
-        return 0;
+if (!binary_string)
+return (0);
 
-    for (i = 0; b[i]; i++)
-    {
-        if (b[i] == '0')
-            decimal_value = (decimal_value << 1) | 0;
-        else if (b[i] == '1')
-            decimal_value = (decimal_value << 1) | 1;
-        else
-            return 0;
-    }
-    return decimal_value;
+for (i = 0; binary_string[i]; i++)
+{
+if (binary_string[i] < '0' || binary_string[i] > '1')
+return (0);
+decimal_value = 2 * decimal_value + (binary_string[i] - '0');
+}
+
+return (decimal_value);
 }
